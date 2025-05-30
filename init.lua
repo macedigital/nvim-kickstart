@@ -668,8 +668,15 @@ require('lazy').setup({
             [vim.diagnostic.severity.HINT] = '󰌶 ',
           },
         } or {},
+        -- Show virtual lines in neovim 0.11+
+        -- virtual_lines = true,
+        -- Alternatively,
+        virtual_lines = {
+          -- Only show virtual line diagnostics for current cursor
+          current_line = true,
+        },
         virtual_text = {
-          source = 'if_many',
+          source = true,
           spacing = 2,
           format = function(diagnostic)
             local diagnostic_message = {
